@@ -1,15 +1,12 @@
-let btnMenu = document.getElementById('btn-menu')
-let menu = document.getElementById('menu-mobile')
-let overlay = document.getElementById('overlay-menu')
+const btnMenu = document.getElementById('btn-menu');
+const menu = document.getElementById('menu-mobile');
+const overlay = document.getElementById('overlay-menu');
 
-btnMenu.addEventListener('click', ()=>{
-    menu.classList.add('abrir-menu')
-})
+// função que abre e fecha o menu
+const mexerMenu = (abrir) => {
+  menu.classList[abrir ? 'add' : 'remove']('abrir-menu');
+};
 
-menu.addEventListener('click', ()=>{
-    menu.classList.remove('abrir-menu')
-})
-
-overlay.addEventListener('click', ()=>{
-    menu.classList.remove('abrir-menu')
-})
+btnMenu.addEventListener('click', () => mexerMenu(true));
+menu.addEventListener('click', () => mexerMenu(false));
+overlay.addEventListener('click', () => mexerMenu(false));
